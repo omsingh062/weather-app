@@ -1,0 +1,205 @@
+/* Container */
+.container {
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background 0.5s ease;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Heading */
+h1 {
+  color: #1E3A8A; /* Dark Blue for contrast */
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Input & Button */
+.weather-input {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.weather-input input {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+  width: 250px;
+}
+
+.weather-input button {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  background-color: #FFD700; /* Sunny Accent */
+  color: #1E3A8A;
+  transition: all 0.3s ease;
+}
+
+.weather-input button:hover {
+  background-color: #FFA500;
+  color: #FFFFFF;
+}
+
+.unit-btn {
+  padding: 0.3rem 0.6rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #5DADE2; /* Accent for button */
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.unit-btn:hover {
+  background-color: #1ABC9C;
+}
+
+/* Loading & Error */
+.loading, .error {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: #ECF0F1; /* Light for visibility on dark backgrounds */
+}
+
+/* Weather Card */
+.weather-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.weather-display h2 {
+  font-size: 2rem;
+  color: inherit; /* Will inherit text color based on weather */
+}
+
+.weather-display .temp {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #FFD700; /* Sunny accent */
+}
+
+.weather-display .desc {
+  font-size: 1.3rem;
+  color: #FFFFFF;
+}
+
+.weather-display p {
+  margin: 0.3rem 0;
+  color: #FFFFFF;
+}
+
+/* Forecast Cards */
+.forecast {
+  width: 100%;
+  max-width: 800px;
+}
+
+.forecast h3 {
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.forecast-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.forecast-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 0.5rem;
+  min-width: 120px;
+  transition: transform 0.3s ease;
+}
+
+.forecast-card:hover {
+  transform: scale(1.05);
+}
+
+.forecast-card p {
+  color: #FFFFFF;
+  margin: 0.3rem 0;
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  width: 150px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  animation: floatCloud 60s linear infinite;
+}
+
+@keyframes floatCloud {
+  0% { transform: translateX(-200px); }
+  100% { transform: translateX(100vw); }
+}
+
+/* Rain */
+.rain {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: #5DADE2; /* Light Blue */
+  animation: fall 1s linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-20px); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Snow */
+.snowflake {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: snow 5s linear infinite;
+}
+
+@keyframes snow {
+  0% { transform: translateY(-20px); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .weather-input {
+    flex-direction: column;
+  }
+  .weather-input input, .weather-input button {
+    width: 100%;
+    margin: 0.3rem 0;
+  }
+  .forecast-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
